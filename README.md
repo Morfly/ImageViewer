@@ -6,6 +6,8 @@ The app supports endless scrolling, automatically requesting and displaying more
 view.
 No third-party library used in the app.
 
+![Alt](screenshots/ImageViewer1.png)
+
 ## Architecture
 ### Clean Architecture
 #### Primary packages:
