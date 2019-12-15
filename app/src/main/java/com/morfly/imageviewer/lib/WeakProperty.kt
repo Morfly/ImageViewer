@@ -1,4 +1,4 @@
-package com.morfly.imageviewer
+package com.morfly.imageviewer.lib
 
 import java.lang.ref.WeakReference
 import kotlin.properties.ReadWriteProperty

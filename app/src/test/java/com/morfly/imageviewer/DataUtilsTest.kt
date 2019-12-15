@@ -1,6 +1,7 @@
 package com.morfly.imageviewer
 
 import com.morfly.imageviewer.data.*
+import com.morfly.imageviewer.domain.image.Image
 import org.json.JSONException
 import org.junit.Assert.*
 import org.json.JSONObject
@@ -198,6 +199,35 @@ class DataUtilsTest {
             assertEquals(stat, "ok")
             assertEquals(photos, givenPhotos)
         }
+    }
+
+    @Test
+    fun `toDomain maps Photo to Image`() {
+
+        // Given
+        val givenPhoto = Photo(
+            id = "49221164563",
+            owner = "186005158@N05",
+            secret = "33bb115ce1",
+            server = "65535",
+            farm = 66,
+            title = "Sleepy kitten",
+            isPublic = true,
+            isFriend = false,
+            isFamily = false
+        )
+
+        val expectedImage = Image(
+            id = "49221164563",
+            url = "https://farm66.staticflickr.com/65535/49221164563_33bb115ce1_b.jpg",
+            thumbUrl = "https://farm66.staticflickr.com/65535/49221164563_33bb115ce1_m.jpg"
+        )
+
+        // When
+        val image = givenPhoto.toDomain()
+
+        // Then
+        assertEquals(image, expectedImage)
     }
 
 

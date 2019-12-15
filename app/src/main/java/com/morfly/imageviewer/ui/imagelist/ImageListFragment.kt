@@ -11,14 +11,13 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.morfly.imageviewer.R
 import com.morfly.imageviewer.domain.image.Image
+import com.morfly.imageviewer.ui.imagelist.di.ImageListComponentProvider
 import com.morfly.imageviewer.ui.lib.EndlessRecyclerViewScrollListener
 
-class ImageListFragment : Fragment(), ImagesListContract.View, View.OnClickListener {
+class ImageListFragment : Fragment(), ImageListContract.View, View.OnClickListener {
 
     private val provider = ImageListComponentProvider()
 

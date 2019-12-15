@@ -15,8 +15,9 @@ class FlickrApiTest {
         val givenServerId = "22"
         val givenId = "333"
         val givenSecret = "4444"
+        val givenSize = FlickrApi.ImageSize.SMALL
 
-        val expectedUrl = "https://farm1.staticflickr.com/22/333_4444.jpg"
+        val expectedUrl = "https://farm1.staticflickr.com/22/333_4444_m.jpg"
 
         // When
         val url = FlickrApi.buildImageUrl(
@@ -28,6 +29,15 @@ class FlickrApiTest {
 
         // Then
         assertEquals(url, expectedUrl)
+    }
+
+    @Test
+    fun `ImageSize instances contain correct modifiers`() {
+        val smallSize = FlickrApi.ImageSize.SMALL
+        val largeSize = FlickrApi.ImageSize.LARGE
+
+        assertEquals(smallSize.modifier, "m")
+        assertEquals(largeSize.modifier, "b")
     }
 
     @Test

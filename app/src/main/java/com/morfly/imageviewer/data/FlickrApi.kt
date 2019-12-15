@@ -5,8 +5,7 @@ interface FlickrApi {
     fun searchPhotos(query: String, page: Int, perPage: Int): PhotoSearchResponse
 
     enum class ImageSize(val modifier: String) {
-        THUMB("s"),
-        MEDIUM("m"),
+        SMALL("m"),
         LARGE("b")
     }
 
@@ -17,7 +16,7 @@ interface FlickrApi {
             serverId: String,
             id: String,
             secret: String,
-            size: ImageSize = ImageSize.MEDIUM
+            size: ImageSize = ImageSize.SMALL
         ): String {
             return "https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}_${size.modifier}.jpg"
         }

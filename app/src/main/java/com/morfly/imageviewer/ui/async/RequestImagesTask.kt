@@ -1,9 +1,8 @@
-package com.morfly.imageviewer.ui.imagelist
+package com.morfly.imageviewer.ui.async
 
 import android.os.AsyncTask
 import com.morfly.imageviewer.domain.image.Image
 import com.morfly.imageviewer.domain.image.ImageRepository
-import com.morfly.imageviewer.weak
 
 typealias OnSuccess = (List<Image>) -> Unit
 typealias OnFailure = () -> Unit
@@ -30,8 +29,3 @@ class RequestImagesTask(
         val perPage: Int
     )
 }
-
-fun ImageRepository.loadImagesAsync(
-    query: String, page: Int, perPage: Int, onSuccess: OnSuccess, onFailure: OnFailure
-) = RequestImagesTask(this, onSuccess, onFailure)
-    .executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, RequestImagesTask.Params(query, page, perPage))

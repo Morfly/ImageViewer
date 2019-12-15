@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.morfly.imageviewer.R
 import com.morfly.imageviewer.domain.image.Image
 import com.morfly.imageviewer.imageloader.ImageLoader
+import com.morfly.imageviewer.imageloader.ImageLoadingPolicy
 
 class ImageListAdapter(private val imageLoader: ImageLoader) :
     RecyclerView.Adapter<ImageListAdapter.ImageViewHolder>() {
@@ -48,7 +49,10 @@ class ImageListAdapter(private val imageLoader: ImageLoader) :
         private val imageView = itemView.findViewById<ImageView>(R.id.image)
 
         fun setImage(image: Image) {
-            imageLoader.load(image.url).into(imageView)
+            imageLoader
+                .load(image.thumbUrl)
+//                .loadingPolicy(ImageLoadingPolicy.NO_MEMORY_CACHE)
+                .into(imageView)
         }
     }
 

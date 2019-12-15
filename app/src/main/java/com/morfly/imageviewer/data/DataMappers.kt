@@ -38,14 +38,15 @@ fun Photo.toDomain(): Image = Image(
         farmId = farm.toString(),
         serverId = server,
         id = id,
-        secret = secret
+        secret = secret,
+        size = FlickrApi.ImageSize.LARGE
     ),
     thumbUrl = FlickrApi.buildImageUrl(
         farmId = farm.toString(),
         serverId = server,
         id = id,
         secret = secret,
-        size = FlickrApi.ImageSize.THUMB
+        size = FlickrApi.ImageSize.SMALL
     )
 )
 

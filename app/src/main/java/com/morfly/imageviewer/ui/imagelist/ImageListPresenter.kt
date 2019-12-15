@@ -1,18 +1,19 @@
 package com.morfly.imageviewer.ui.imagelist
 
 import com.morfly.imageviewer.R
-import com.morfly.imageviewer.domain.image.Image
 import com.morfly.imageviewer.domain.image.ImageRepository
 import com.morfly.imageviewer.domain.image.ImageRepository.Companion.PER_PAGE_DEFAULT
+import com.morfly.imageviewer.ui.async.ImageRepositoryAsync
 
-class ImagesListPresenter(private val repository: ImageRepository) : ImagesListContract.Presenter {
+class ImageListPresenter(private val repository: ImageRepositoryAsync) : ImageListContract.Presenter {
 
-    override var view: ImagesListContract.View? = null
+    override var view: ImageListContract.View? = null
 
     override val numberOfListColumns: Int get() = 3
 
 
-    private var lastQuery: String? = null
+    var lastQuery: String? = null
+        private set
 
 
     override fun loadImages(query: String) {
