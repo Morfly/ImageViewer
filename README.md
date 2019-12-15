@@ -6,7 +6,7 @@ The app supports endless scrolling, automatically requesting and displaying more
 view.
 No third-party library used in the app.
 
-![Alt](screenshots/ImageViewer1.png | width=500)
+![Alt](screenshots/ImageViewer1.png |width=500)
 
 ## Architecture
 ### Clean Architecture
