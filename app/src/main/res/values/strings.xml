@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">ImageViewer</string>
+    <string name="app_name">Image Viewer</string>
+    <string name="text_no_images">Type your query below to find images</string>
+    <string name="hint_search">Search…</string>
+    <string name="text_error">An error occurred…</string>
 </resources>
