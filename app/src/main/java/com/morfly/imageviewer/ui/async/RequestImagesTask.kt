@@ -15,9 +15,9 @@ class RequestImagesTask(
 ) : AsyncTask<RequestImagesTask.Params, Unit, List<Image>>() {
 
     override fun doInBackground(vararg params: Params): List<Image>? {
-        val (query, skip, take) = params[0]
+        val (query, page, perPage) = params[0]
         return try {
-            repository.loadImages(query, skip, take)
+            repository.loadImages(query, page, perPage)
         } catch (e: Exception) {
             null
         }
