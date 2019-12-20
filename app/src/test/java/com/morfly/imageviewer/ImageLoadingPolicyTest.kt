@@ -15,7 +15,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.NO_MEMORY_CACHE.isAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.NO_MEMORY_CACHE isAppliedTo givenPolicy
 
         // Then
         assertTrue(isAppliedTo)
@@ -27,7 +27,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isAppliedTo givenPolicy
 
         // Then
         assertFalse(isAppliedTo)
@@ -39,7 +39,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE() or ImageLoadingPolicy.OFFLINE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isAppliedTo givenPolicy
 
         // Then
         assertTrue(isAppliedTo)
@@ -51,7 +51,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = 0
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isAppliedTo givenPolicy
 
         // Then
         assertFalse(isAppliedTo)
@@ -64,7 +64,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.NO_MEMORY_CACHE.isNotAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.NO_MEMORY_CACHE isNotAppliedTo givenPolicy
 
         // Then
         assertFalse(isAppliedTo)
@@ -76,7 +76,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isNotAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isNotAppliedTo givenPolicy
 
         // Then
         assertTrue(isAppliedTo)
@@ -88,7 +88,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = ImageLoadingPolicy.NO_MEMORY_CACHE() or ImageLoadingPolicy.OFFLINE()
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isNotAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isNotAppliedTo givenPolicy
 
         // Then
         assertFalse(isAppliedTo)
@@ -100,7 +100,7 @@ class ImageLoadingPolicyTest {
         val givenPolicy = 0
 
         // When
-        val isAppliedTo = ImageLoadingPolicy.OFFLINE.isNotAppliedTo(givenPolicy)
+        val isAppliedTo = ImageLoadingPolicy.OFFLINE isNotAppliedTo givenPolicy
 
         // Then
         assertTrue(isAppliedTo)

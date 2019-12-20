@@ -17,8 +17,8 @@ internal class DownloadImageTask(
 
     private val imageLoader by weak(imageLoader)
 
-    private val canUseCache: Boolean = ImageLoadingPolicy.NO_MEMORY_CACHE.isNotAppliedTo(loadingPolicy)
-    private val canUseNetwork: Boolean = ImageLoadingPolicy.OFFLINE.isNotAppliedTo(loadingPolicy)
+    private val canUseCache: Boolean = ImageLoadingPolicy.NO_MEMORY_CACHE isNotAppliedTo loadingPolicy
+    private val canUseNetwork: Boolean = ImageLoadingPolicy.OFFLINE isNotAppliedTo loadingPolicy
 
     override fun doInBackground(vararg args: Arg): Bitmap? {
         val (url: String, width: Int, height: Int) = args[0]

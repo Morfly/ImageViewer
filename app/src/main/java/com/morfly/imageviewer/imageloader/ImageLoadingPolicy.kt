@@ -7,8 +7,8 @@ enum class ImageLoadingPolicy(val index: Int) {
     operator fun invoke() = index
 }
 
-fun ImageLoadingPolicy.isAppliedTo(policy: Int): Boolean {
+infix fun ImageLoadingPolicy.isAppliedTo(policy: Int): Boolean {
     return (policy and index) == index
 }
 
-fun ImageLoadingPolicy.isNotAppliedTo(policy: Int) = isAppliedTo(policy).not()
+infix fun ImageLoadingPolicy.isNotAppliedTo(policy: Int) = isAppliedTo(policy).not()
