@@ -14,7 +14,7 @@ interface ImageMemoryCacheManager {
 
 class ImageMemoryCacheManagerDefault : ImageMemoryCacheManager {
 
-    private var memoryCache: LruCache<String, Bitmap>? = null
+    private val memoryCache: LruCache<String, Bitmap>
 
     init {
         // Get max available VM memory, exceeding this amount will throw an
@@ -36,11 +36,11 @@ class ImageMemoryCacheManagerDefault : ImageMemoryCacheManager {
 
     override fun saveToMemoryCache(key: String, bitmap: Bitmap) {
         if (getFromMemoryCache(key) == null) {
-            memoryCache?.put(key, bitmap);
+            memoryCache.put(key, bitmap);
         }
     }
 
     override fun getFromMemoryCache(key: String): Bitmap? {
-        return memoryCache?.get(key);
+        return memoryCache.get(key);
     }
 }
