@@ -17,6 +17,8 @@ class ImageListAdapter(private val imageLoader: ImageLoader) :
 
     private val items = mutableListOf<Image>()
 
+    var listener: OnImageClickListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         LayoutInflater.from(parent.context)
             .inflate(R.layout.item_image, parent, false)
@@ -48,6 +50,13 @@ class ImageListAdapter(private val imageLoader: ImageLoader) :
 
         private val imageView = itemView.findViewById<ImageView>(R.id.image)
 
+        init {
+            imageView.setOnClickListener {
+                val image = items[adapterPosition]
+                listener?.invoke(image.url, image.id)
+            }
+        }
+
         fun setImage(image: Image) {
             imageLoader
                 .load(image.thumbUrl)
@@ -61,3 +70,5 @@ class ImageListAdapter(private val imageLoader: ImageLoader) :
         private val LOG_TAG = ImageListAdapter::class.java.simpleName
     }
 }
+
+typealias OnImageClickListener = (url: String, name: String) -> Unit

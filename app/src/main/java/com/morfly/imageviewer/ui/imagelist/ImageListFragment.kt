@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.morfly.imageviewer.R
 import com.morfly.imageviewer.domain.image.Image
+import com.morfly.imageviewer.ui.imagedetail.ImageDetailFragment
 import com.morfly.imageviewer.ui.imagelist.di.ImageListComponentProvider
 import com.morfly.imageviewer.ui.lib.EndlessRecyclerViewScrollListener
 
@@ -60,6 +61,13 @@ class ImageListFragment : Fragment(), ImageListContract.View, View.OnClickListen
                 addOnScrollListener(onScrollListener)
             }
 
+
+        imageListAdapter.listener = { url, name ->
+            fragmentManager!!.beginTransaction()
+                .replace(R.id.fragment_container, ImageDetailFragment.newInstance(url, name))
+                .addToBackStack("ImageDetails")
+                .commit()
+        }
         return root
     }
 
